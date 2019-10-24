@@ -8,45 +8,45 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/lcarmelo/filit/cmake-build-debug"/>
+				<Option working_dir="/Users/lcarmelo/Fillit/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/lcarmelo/filit/cmake-build-debug"/>
+				<Option working_dir="/Users/lcarmelo/Fillit/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/lcarmelo/filit/cmake-build-debug"/>
+				<Option working_dir="/Users/lcarmelo/Fillit/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="filit">
-				<Option output="/Users/lcarmelo/filit/cmake-build-debug/filit" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/lcarmelo/filit/cmake-build-debug"/>
+				<Option output="/Users/lcarmelo/Fillit/cmake-build-debug/filit" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lcarmelo/Fillit/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/lcarmelo/filit/."/>
-					<Add directory="/Users/lcarmelo/filit/includes"/>
-					<Add directory="/Users/lcarmelo/filit/libft/includes"/>
+					<Add directory="/Users/lcarmelo/Fillit/."/>
+					<Add directory="/Users/lcarmelo/Fillit/includes"/>
+					<Add directory="/Users/lcarmelo/Fillit/libft/includes"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -55,22 +55,22 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 filit"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 filit"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="filit/fast">
-				<Option output="/Users/lcarmelo/filit/cmake-build-debug/filit" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/lcarmelo/filit/cmake-build-debug"/>
+				<Option output="/Users/lcarmelo/Fillit/cmake-build-debug/filit" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/lcarmelo/Fillit/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/lcarmelo/filit/."/>
-					<Add directory="/Users/lcarmelo/filit/includes"/>
-					<Add directory="/Users/lcarmelo/filit/libft/includes"/>
+					<Add directory="/Users/lcarmelo/Fillit/."/>
+					<Add directory="/Users/lcarmelo/Fillit/includes"/>
+					<Add directory="/Users/lcarmelo/Fillit/libft/includes"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -79,254 +79,254 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 filit/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/filit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 filit/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/lcarmelo/Fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/lcarmelo/filit/fillit.c">
+		<Unit filename="/Users/lcarmelo/Fillit/fillit.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/fillit.h">
+		<Unit filename="/Users/lcarmelo/Fillit/fillit.h">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/get_next_line.c">
+		<Unit filename="/Users/lcarmelo/Fillit/get_next_line.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/get_next_line.h">
+		<Unit filename="/Users/lcarmelo/Fillit/get_next_line.h">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/includes/fillit.h">
+		<Unit filename="/Users/lcarmelo/Fillit/includes/fillit.h">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/includes/get_next_line.h">
+		<Unit filename="/Users/lcarmelo/Fillit/includes/get_next_line.h">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/includes/libft.h">
+		<Unit filename="/Users/lcarmelo/Fillit/includes/libft.h">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/includes/solve.h">
+		<Unit filename="/Users/lcarmelo/Fillit/includes/solve.h">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/input_check.c">
+		<Unit filename="/Users/lcarmelo/Fillit/input_check.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/includes/libft.h">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/includes/libft.h">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_atoi.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_atoi.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_bzero.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_bzero.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_isalnum.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_isalnum.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_isalpha.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_isalpha.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_isascii.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_isascii.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_isdigit.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_isdigit.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_isprint.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_isprint.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_isspace.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_isspace.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_itoa.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_itoa.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_lstadd.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_lstadd.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_lstdel.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_lstdel.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_lstdelone.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_lstdelone.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_lstiter.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_lstiter.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_lstmap.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_lstmap.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_lstnew.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_lstnew.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memalloc.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memalloc.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memccpy.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memccpy.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memchr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memchr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memcmp.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memcmp.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memcpy.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memcpy.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memdel.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memdel.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memmove.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memmove.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_memset.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_memset.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_power.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_power.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putchar.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putchar.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putchar_fd.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putchar_fd.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putendl.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putendl.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putendl_fd.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putendl_fd.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putnbr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putnbr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putnbr_base.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putnbr_base.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putnbr_fd.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putnbr_fd.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putstr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putstr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_putstr_fd.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_putstr_fd.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_realloc.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_realloc.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strcat.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strcat.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strchr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strchr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strclr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strclr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strcmp.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strcmp.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strcpy.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strcpy.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strdel.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strdel.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strdup.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strdup.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strequ.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strequ.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_striter.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_striter.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_striteri.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_striteri.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strjoin.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strjoin.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strlcat.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strlcat.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strlcpy.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strlcpy.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strlen.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strlen.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strlowcase.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strlowcase.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strmap.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strmap.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strmapi.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strmapi.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strncat.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strncat.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strncmp.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strncmp.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strncpy.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strncpy.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strnequ.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strnequ.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strnew.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strnew.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strnstr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strnstr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strrchr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strrchr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strsplit.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strsplit.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strstr.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strstr.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strsub.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strsub.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strtrim.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strtrim.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_strupcase.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_strupcase.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_swap.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_swap.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_tolower.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_tolower.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/libft/srcs/ft_toupper.c">
+		<Unit filename="/Users/lcarmelo/Fillit/libft/srcs/ft_toupper.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/list_funcs.c">
+		<Unit filename="/Users/lcarmelo/Fillit/list_funcs.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/print_errors.c">
+		<Unit filename="/Users/lcarmelo/Fillit/print_errors.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/solve.c">
+		<Unit filename="/Users/lcarmelo/Fillit/solve.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/tetrimino_collection.c">
+		<Unit filename="/Users/lcarmelo/Fillit/tetrimino_collection.c">
 			<Option target="filit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/filit/CMakeLists.txt">
+		<Unit filename="/Users/lcarmelo/Fillit/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

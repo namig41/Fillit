@@ -1,22 +1,22 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aolen <marvin@42.fr>                       +#+  +:+       +#+         #
+#    By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/09/03 15:10:57 by aolen             #+#    #+#              #
-#    Updated: 2019/09/10 17:55:47 by aolen            ###   ########.fr        #
+#    Created: 2019/09/27 15:54:57 by lcarmelo          #+#    #+#              #
+#    Updated: 2019/09/27 15:55:04 by lcarmelo         ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
-FUNCS_1 = ft_memset\
-		ft_bzero\
-		ft_memcpy\
-		ft_memccpy\
-		ft_memmove\
-		ft_memchr\
-		ft_memcmp\
+FUNCS_1 = ft_memset \
+		ft_bzero \
+		ft_memcpy \
+		ft_memccpy \
+		ft_memmove \
+		ft_memcmp \
+		ft_memchr \
 		ft_strlen \
 		ft_strdup \
 		ft_strcpy \
@@ -38,12 +38,13 @@ FUNCS_1 = ft_memset\
 		ft_isprint \
 		ft_toupper \
 		ft_tolower
+
+
 FUNCS_2 = \
-		ft_memalloc \
+        ft_memalloc \
 		ft_memdel \
 		ft_strnew \
 		ft_strdel \
-		ft_strclr \
 		ft_striter \
 		ft_striteri \
 		ft_strmap \
@@ -62,53 +63,40 @@ FUNCS_2 = \
 		ft_putchar_fd \
 		ft_putnbr_fd \
 		ft_putstr_fd \
-		ft_putendl_fd
-FUNCS_3 = \
-		ft_lstnew \
-		ft_lstdelone \
-		ft_lstdel \
-		ft_lstadd \
-		ft_lstiter \
-		ft_lstmap
-FUNCS_A = \
-		ft_strlcpy \
-		ft_power \
-		ft_putnbr_base \
-		ft_swap \
-		ft_isspace \
-		ft_strupcase \
-		ft_strlowcase \
-		ft_realloc
-ALL_FUNCS = $(FUNCS_1) $(FUNCS_2) $(FUNCS_3) $(FUNCS_A)
+		ft_putendl_fd \
+		ft_strclr
+FUNCS_3	= \
+        ft_lstnew \
+        ft_lstdelone \
+        ft_lstdel \
+        ft_lstiter \
+        ft_lstmap \
+        ft_lstadd
+MY_FUNCS = \
+		ft_max \
+		ft_min \
+		ft_random \
+		ft_strsave \
+
+
+ALL_FUNCS = $(FUNCS_1) $(FUNCS_2) $(FUNCS_3) $(MY_FUNCS)
 NAME = libft.a
 SRC = $(addprefix $(SRC_PATH), $(addsuffix .c, $(ALL_FUNCS)))
 OBJS = $(addsuffix .o, $(ALL_FUNCS))
-SRC_PATH = ./srcs/
-INCLUDE_PATH = ./includes/
+SRC_PATH = ./
+INCLUDE_PATH = ./
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE_PATH)
-RED = "\033[1;31m"
-PURPLE = "\033[1;35m"
-GREEN = "\033[1;32m"
-NOCOLOR = "\033[0m"
 
 all: $(NAME)
 
-compile:
-	@echo $(PURPLE)">>> Compiling..."$(NOCOLOR)
-
-$(OBJS): %.o: $(SRC_PATH)%.c
+$(OBJS): %.o: %.c
 	gcc -c $(CFLAGS) $^
 
-$(NAME): $(OBJS) #compile
-	@echo $(PURPLE)">>> Packing..."$(NOCOLOR)
+$(NAME): $(OBJS)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
-	@echo $(GREEN)">>> Succes!"$(NOCOLOR)
 clean:
-	@echo $(PURPLE)">>> Deleting object files.."$(NOCOLOR)
 	rm -f $(OBJS)
 fclean: clean
-	@echo $(PURPLE)">>> Deleting Libft..."$(NOCOLOR)
 	rm -f $(NAME)
-	@echo $(GREEN)">>> Libft deleted"$(NOCOLOR)'\n'
 re: fclean all
