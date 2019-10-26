@@ -13,12 +13,6 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define LEN_ERR (-1)
-# define SYM_ERR (-2)
-# define FIG_ERR (-3)
-
-# define REPLACE_SYM '*'
-
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -32,11 +26,5 @@ typedef struct	s_tetriminos
 }				t_tetriminos;
 
 t_tetriminos	g_tetro_list[26];
-
-void			print_usage(void);
-void			tetrimino_collection(char **figure, int iter);
-int				check_tetr(char **tab);
-unsigned long	ft_root(unsigned long long num);
-
 
 #endif

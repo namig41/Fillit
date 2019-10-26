@@ -3,133 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aolen <aolen@42.fr>                        +#+  +:+       +#+        */
+/*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 11:37:47 by aolen             #+#    #+#             */
-/*   Updated: 2019/09/16 19:17:19 by aolen            ###   ########.fr       */
+/*   Created: 2019/09/28 18:29:20 by lcarmelo          #+#    #+#             */
+/*   Updated: 2019/10/26 17:49:30 by lcarmelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "get_next_line.h"
-#include "libft.h"
 
-/*
-** Protected stlen whic checks pointer
-*/
-
-static size_t	ft_strlen_p(char *s)
+int		get_next_line(const int fd, char **line)
 {
-	unsigned int len;
+	static char *c[MAX_FILES] = {NULL};
+	char		buf[BUFF_SIZE + 1];
+	int			shift;
+	int			n;
+	char		*s;
 
-	len = 0;
-	while (s && *(s + len))
-		len++;
-	return (len);
-}
-
-/*
-** Function that clears all data written by malloc
-*/
-
-static int		del(char **tmp, char **file_line, char **line)
-{
-	ft_strdel(tmp);
-	ft_strdel(file_line);
-	ft_strdel(line);
-	return (MEM_ERR);
-}
-
-/*
-** Function than search for SEPARATOR and if found writes all symbol till
-** SEPARATOR in (line) and check for remainder, if it exist writes it to
-** static variable
-*/
-
-static int		function(char **tmp, char **file_line, int ret, char **line)
-{
-	int		i;
-	size_t	len;
-	int		error;
-
-	i = 0;
-	error = 0;
-	ft_strdel(file_line);
-	len = ft_strlen_p(*tmp);
-	while ((*tmp)[i] != SEPARATOR && (size_t)i < len)
-		i++;
-	if ((*tmp)[i] == SEPARATOR)
-	{
-		(*tmp)[i] = 0;
-		if (!(*line = ft_strdup(*tmp)))
-			return (del(tmp, file_line, line));
-		if ((i < ret - 1) || ((size_t)i < len - 1))
-			if (!(*file_line = ft_strdup(&((*tmp)[i + 1]))))
-				return (del(tmp, file_line, line));
-		ft_strdel(tmp);
-		return (1);
-	}
-	if (len && !(*file_line = ft_strdup(*tmp)))
-		return (del(tmp, file_line, line));
-	ft_strdel(tmp);
-	return (0);
-}
-
-/*
-** Function which return -1 on error, 1 if we wrote something in (line)
-** and 0 if we have nothing to write in (line)
-*/
-
-static int		returning_function(int ret, char **file_line, char **line)
-{
-	if (ret < 0)
+	if ((shift = (fd < 0 || !line || fd >= MAX_FILES)))
 		return (-1);
-	if (ret == 0)
+	while (!(s = ft_strchr(c[fd] + (shift += !shift ? 0 : n), SEPARATOR)))
 	{
-		if (*file_line)
-		{
-			if (!(*line = ft_strdup((*file_line))))
-				return (del(NULL, file_line, line));
-			ft_strdel(file_line);
-			return (1);
-		}
-		return (0);
+		if ((n = read(fd, buf, BUFF_SIZE)) <= 0)
+			break ;
+		buf[n] = '\0';
+		if (!(c[fd] = ft_strsave(c[fd], buf)))
+			return (-1);
 	}
-	if (*line)
-		return (1);
-	return (0);
-}
-
-/*
-** Main part of function in which we check if remainder exist and
-** check it for SEPARATOR. If it is no reamainder for this file or
-** no SEPARATOR in remainder we reading till find EOF or SEPARATOR
-*/
-
-int				get_next_line(const int fd, char **line)
-{
-	static char	*file_lines[MAX_FILES] = {0};
-	int			ret;
-	char		*tmp;
-	char		str[BUFF_SIZE + 1];
-
-	tmp = NULL;
-	if (fd < 0 || !line)
+	if ((!c[fd] && !n) || n < 0 || !*c[fd])
+		return (n < 0 ? -1 : 0);
+	n = s ? (s - c[fd]) : ft_strlen(c[fd]);
+	if (!(*line = ft_strnew(n)) & !ft_strncpy(*line, c[fd], n))
 		return (-1);
-	if (file_lines[fd] && fd < MAX_FILES)
-	{
-		if (!(tmp = ft_strjoin(tmp, file_lines[fd])))
-			return (del(&tmp, &file_lines[fd], line));
-		else if ((ret = function(&tmp, &file_lines[fd], 0, line)) != 0)
-			return (ret < 0 ? del(&tmp, &file_lines[fd], line) : 1);
-	}
-	while ((ret = read(fd, str, BUFF_SIZE)) > 0)
-	{
-		str[ret] = 0;
-		if (!(tmp = ft_strjoin(file_lines[fd], str)))
-			return (del(&tmp, &file_lines[fd], line));
-		if ((str[BUFF_SIZE] = function(&tmp, &file_lines[fd], ret, line)) != 0)
-			return (str[BUFF_SIZE] < 0 ? del(&tmp, &file_lines[fd], line) : 1);
-	}
-	ft_strdel(&tmp);
-	return (returning_function(ret, &file_lines[fd], line));
+	s = s ? ft_strdup(s + 1) : NULL;
+	ft_memdel((void *)&c[fd]);
+	return ((c[fd] = s) == s);
 }
