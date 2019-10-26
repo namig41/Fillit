@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
-#include <stdio.h>
+#include "includes/solve.h"
 
 void	draw_map(char **map, int map_size)
 {
@@ -20,166 +18,124 @@ void	draw_map(char **map, int map_size)
 
 	i = -1;
 	while (++i < map_size)
-	{
-		ft_putstr(map[i]);
-		ft_putchar('\n');
-	}
-}
-
-void	reset_map(char **map, int map_size)
-{
-	int i;
-	int j;
-
-	i = -1;
-	while (++i < map_size)
-	{
-		j = -1;
-		while (++j < map_size)
-			map[i][j] = '.';
-		map[i][j] = '\0';
-	}
-}
-
-void resize_map(char ***map, int map_size)
-{
-	int i;
-
-	i = -1;
-	while (++i < map_size)
-		(*map)[i] = ft_realloc((*map)[i], map_size);
+		ft_putendl(map[i]);
 }
 
 void	destroy_map(char ***map, int map_size)
 {
-	int i;
-
-	i = -1;
-	while (++i < map_size)
-		free((*map)[i]);
+	while (--map_size >= 0)
+		free((*map)[map_size]);
 	free(*map);
 }
 
-void	init_map(char ***map, int map_size)
+int		init_map(char ***map, int map_size)
 {
 	int i;
+	int j;
 
 	i = -1;
-	*map = (char **)malloc(sizeof(char *) * map_size);
+	if (!(*map = (char **)malloc(sizeof(char *) * map_size)))
+		return (0);
 	while (++i < map_size)
-		(*map)[i] = (char *)malloc(sizeof(char) * (map_size + 1));
+	{
+		if (!((*map)[i] = (char *)malloc(sizeof(char) * (map_size + 1))))
+		{
+			destroy_map(map, i);
+			return (0);
+		}
+		j = -1;
+		while (++j < map_size)
+			(*map)[i][j] = '.';
+		(*map)[i][j] = '\0';
+	}
+	return (1);
 }
 
-
-int 	walk(char **map, t_tetriminos obj, int off_x, int off_y, int map_size)
+int		draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 {
 	int i;
 	int j;
 
-	i = off_y;
-	while (i < obj.height + off_y && i < map_size)
+	i = -1;
+	while (++i < obj->height)
 	{
-		j = off_x;
-		while (j < obj.width + off_x && j < map_size)
+		j = -1;
+		while (++j < obj->width)
 		{
-			if (map[i][j] != '.' && obj.shape[i - off_y][j - off_x] != '.')
+			if (obj->shape[i][j] != '.')
+				map[i + off_i][j + off_j] = obj->letter;
+			else if (obj->shape[i][j] != '.' && map[i + off_i][j + off_j] != '.')
+			{
+				delete_shape(map, obj, off_i, off_j);
 				return (0);
-			j++;
+			}
 		}
-		i++;
 	}
 	return (1);
 }
 
-int		check_object(char **map, t_tetriminos obj, int *off_x, int *off_y, int map_size)
-{
-	int x;
-
-	while (*off_y + obj.height - 1 < map_size)
-	{
-		x = *off_x;
-		while (x + obj.width - 1 < map_size)
-		{
-			if (walk(map, obj, x, *off_y, map_size))
-			{
-				*off_x = x;
-				return (1);
-			}
-			x++;
-		}
-		(*off_y)++;
-	}
-	return (0);
-}
-
-int		accommodation(char **map, t_tetriminos *objects, int count_figure, int map_size)
+void 	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 {
 	int i;
 	int j;
-	int k;
-	int offsetX;
-	int offsetY;
 
-	k = -1;
-	reset_map(map, map_size);
-	while (++k < count_figure)
+	i = -1;
+	while (++i < obj->height) 
 	{
-		i = -1;
-		while (++i < objects[k].height)
+		j = -1;
+		while (++j < obj->width)
 		{
-			j = -1;
-			while (++j < objects[k].width)
-			{
-				if (k != 0 && i == 0 && j == 0)
-				{
-					offsetX = 0;
-					offsetY = 0;
-					if (!check_object(map, objects[k], &offsetX, &offsetY, map_size))
-						return (0);
-				}
-				if (objects[k].shape[i][j] != '.')
-					map[i + offsetY][j + offsetX] = objects[k].letter;
-			}
+			if (obj->shape[i][j] != '.')
+				map[i + off_i][j + off_j] = '.';
 		}
 	}
-	return (1);
 }
 
-int		permutation(char **map, t_tetriminos *objects, int count_figure, int index, int map_size)
+int		walk(char **map, t_tetriminos *obj, int map_size)
 {
-	int i;
+	int off_i;
+	int off_j;
 
-	i = index;
-	if (index == count_figure)
+	off_i = -1;
+	while (++off_i <= map_size - obj->height) 
 	{
-		if (accommodation(map, objects, count_figure, map_size))
+		off_j = -1;
+		while (++off_j <= map_size - obj->width)
 		{
-			draw_map(map, map_size);
-			return (1);
-		}
-	}
-	else
-	{
-		while (i < count_figure)
-		{
-			ft_swap(&objects[i], &objects[index], sizeof(t_tetriminos));
-			if (permutation(map, objects, count_figure, index + 1, map_size))
+			if (map[off_i][off_j] == '.' && draw_shape(map, obj, off_i, off_j))
 				return (1);
-			ft_swap(&objects[i], &objects[index], sizeof(t_tetriminos));
-			i++;
 		}
 	}
 	return (0);
 }
 
-void	search_solve(t_tetriminos *objects, int count_figure, int map_size)
+int		search(char **map, t_tetriminos *shapes, int count_figure, int current_shape, int map_size)
+{
+	if (count_figure == current_shape)
+	{
+		draw_map(map, map_size);
+		return (1);
+	}
+	while (current_shape < count_figure)
+	{
+		if (!walk(map, &shapes[current_shape], map_size))
+			return (0);
+		if (search(map, shapes, count_figure, current_shape + 1, map_size))
+			return (1);
+		current_shape++;
+	}
+	return (0);
+}
+
+void	search_solve(t_tetriminos *shapes, int count_figure, int map_size)
 {
 	char **map;
 
 	while (1)
 	{
-		init_map(&map, map_size);
-		if (permutation(map, objects, count_figure, 0, map_size))
+		if (!init_map(&map, map_size))
+			return ;
+		if (search(map, shapes, count_figure, 0, map_size))
 		{
 			destroy_map(&map, map_size);
 			return ;

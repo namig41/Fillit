@@ -13,14 +13,15 @@
 #ifndef SOLVE_H
 # define SOLVE_H
 
-int		permutation(char **map, t_tetriminos *objects, int count_f, int index, int map_size);
-int		accommodation(char **map, t_tetriminos *objects, int count_f, int map_size);
-int		check_object(char **map, t_tetriminos obj, int *off_x, int *off_y, int map_size);
-void	search_solve(t_tetriminos *objects, int count_f, int map_size);
-int		walk(char **map, t_tetriminos obj, int off_x, int off_y, int map_size);
-void	init_map(char ***map, int map_size);
-void	reset_map(char **map, int map_size);
+#include "../libft/libft.h"
+#include "fillit.h"
+
+void	search_solve(t_tetriminos *shapes, int count_figure, int min_map_size);
+int     init_map(char ***map, int map_size);
 void	destroy_map(char ***map, int map_size);
 void	draw_map(char **map, int map_size);
+int     draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
+void    delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
+int     walk(char **map, t_tetriminos *obj, int map_size);
 
 #endif
