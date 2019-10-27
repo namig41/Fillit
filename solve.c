@@ -62,13 +62,13 @@ int		draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 		j = -1;
 		while (++j < obj->width)
 		{
-			if (obj->shape[i][j] != '.')
-				map[i + off_i][j + off_j] = obj->letter;
-			else if (obj->shape[i][j] != '.' && map[i + off_i][j + off_j] != '.')
+			if (obj->shape[i][j] != '.' && map[i + off_i][j + off_j] != '.')
 			{
 				delete_shape(map, obj, off_i, off_j);
 				return (0);
 			}
+			if (obj->shape[i][j] != '.')
+				map[i + off_i][j + off_j] = obj->letter;
 		}
 	}
 	return (1);
@@ -85,7 +85,7 @@ void 	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 		j = -1;
 		while (++j < obj->width)
 		{
-			if (obj->shape[i][j] != '.')
+			if (obj->shape[i][j] != '.' && map[i + off_i][j + off_j] == obj->letter)
 				map[i + off_i][j + off_j] = '.';
 		}
 	}
@@ -95,8 +95,10 @@ int		walk(char **map, t_tetriminos *obj, int map_size)
 {
 	int off_i;
 	int off_j;
+    int flag;
 
 	off_i = -1;
+    flag = 0;
 	while (++off_i <= map_size - obj->height) 
 	{
 		off_j = -1;
