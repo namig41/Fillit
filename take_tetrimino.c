@@ -71,18 +71,4 @@ void            parse_file(int fd)
         }
         g_max_size++;
     }
-
-    int j;
-    i = 0;
-    while (i < g_max_size)
-    {
-        j = 0;
-        while (j < N)
-        {
-            ft_putendl(g_tetro_list[i].shape[j]);
-            j++;
-        }
-        ft_putchar('\n');
-        i++;
-    }
 }
