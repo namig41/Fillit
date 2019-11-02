@@ -44,7 +44,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/lcarmelo/Fillit/."/>
 					<Add directory="/Users/lcarmelo/Fillit/includes"/>
 					<Add directory="/Users/lcarmelo/Fillit/libft"/>
 					<Add directory="/usr/local/include"/>
@@ -68,7 +67,6 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/lcarmelo/Fillit/."/>
 					<Add directory="/Users/lcarmelo/Fillit/includes"/>
 					<Add directory="/Users/lcarmelo/Fillit/libft"/>
 					<Add directory="/usr/local/include"/>
@@ -89,13 +87,16 @@
 		<Unit filename="/Users/lcarmelo/Fillit/get_next_line.c">
 			<Option target="Fillit"/>
 		</Unit>
-		<Unit filename="/Users/lcarmelo/Fillit/get_next_line.h">
-			<Option target="Fillit"/>
-		</Unit>
 		<Unit filename="/Users/lcarmelo/Fillit/includes/fillit.h">
 			<Option target="Fillit"/>
 		</Unit>
+		<Unit filename="/Users/lcarmelo/Fillit/includes/get_next_line.h">
+			<Option target="Fillit"/>
+		</Unit>
 		<Unit filename="/Users/lcarmelo/Fillit/includes/solve.h">
+			<Option target="Fillit"/>
+		</Unit>
+		<Unit filename="/Users/lcarmelo/Fillit/includes/take_tetrimino.h">
 			<Option target="Fillit"/>
 		</Unit>
 		<Unit filename="/Users/lcarmelo/Fillit/libft/ft_atoi.c">
@@ -291,6 +292,9 @@
 			<Option target="Fillit"/>
 		</Unit>
 		<Unit filename="/Users/lcarmelo/Fillit/solve.c">
+			<Option target="Fillit"/>
+		</Unit>
+		<Unit filename="/Users/lcarmelo/Fillit/take_tetrimino.c">
 			<Option target="Fillit"/>
 		</Unit>
 		<Unit filename="/Users/lcarmelo/Fillit/CMakeLists.txt">

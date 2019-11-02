@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/lcarmelo/Fillit/. -I/Users/lcarmelo/Fillit/includes -I/Users/lcarmelo/Fillit/libft 
+C_INCLUDES = -I/Users/lcarmelo/Fillit/includes -I/Users/lcarmelo/Fillit/libft 
 

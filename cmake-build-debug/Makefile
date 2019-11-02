@@ -1878,6 +1878,33 @@ solve.c.s:
 	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/solve.c.s
 .PHONY : solve.c.s
 
+take_tetrimino.o: take_tetrimino.c.o
+
+.PHONY : take_tetrimino.o
+
+# target to build an object file
+take_tetrimino.c.o:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/take_tetrimino.c.o
+.PHONY : take_tetrimino.c.o
+
+take_tetrimino.i: take_tetrimino.c.i
+
+.PHONY : take_tetrimino.i
+
+# target to preprocess a source file
+take_tetrimino.c.i:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/take_tetrimino.c.i
+.PHONY : take_tetrimino.c.i
+
+take_tetrimino.s: take_tetrimino.c.s
+
+.PHONY : take_tetrimino.s
+
+# target to generate assembly for a file
+take_tetrimino.c.s:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/take_tetrimino.c.s
+.PHONY : take_tetrimino.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2082,6 +2109,9 @@ help:
 	@echo "... solve.o"
 	@echo "... solve.i"
 	@echo "... solve.s"
+	@echo "... take_tetrimino.o"
+	@echo "... take_tetrimino.i"
+	@echo "... take_tetrimino.s"
 .PHONY : help
 
 

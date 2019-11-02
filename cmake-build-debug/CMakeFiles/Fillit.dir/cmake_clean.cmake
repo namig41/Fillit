@@ -64,6 +64,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Fillit.dir/get_next_line.c.o"
   "CMakeFiles/Fillit.dir/main.c.o"
   "CMakeFiles/Fillit.dir/solve.c.o"
+  "CMakeFiles/Fillit.dir/take_tetrimino.c.o"
   "Fillit.pdb"
   "Fillit"
 )

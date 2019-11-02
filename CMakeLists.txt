@@ -3,13 +3,14 @@ project(Fillit C)
 
 set(CMAKE_C_STANDARD 11)
 
-include_directories(.)
 include_directories(includes)
 include_directories(libft)
 
 add_executable(Fillit
         includes/fillit.h
+        includes/get_next_line.h
         includes/solve.h
+        includes/take_tetrimino.h
         libft/ft_atoi.c
         libft/ft_bzero.c
         libft/ft_isalnum.c
@@ -74,6 +75,6 @@ add_executable(Fillit
         libft/ft_toupper.c
         libft/libft.h
         get_next_line.c
-        get_next_line.h
         main.c
-        solve.c)
+        solve.c
+        take_tetrimino.c)

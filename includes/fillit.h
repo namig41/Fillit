@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
+# define N 4
 
 typedef struct	s_tetriminos
 {
@@ -26,5 +27,6 @@ typedef struct	s_tetriminos
 }				t_tetriminos;
 
 t_tetriminos	g_tetro_list[26];
+int 			g_max_size = 0;
 
 #endif

@@ -69,12 +69,12 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/lcarmelo/Fillit/libft/ft_toupper.c" "/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/libft/ft_toupper.c.o"
   "/Users/lcarmelo/Fillit/main.c" "/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/main.c.o"
   "/Users/lcarmelo/Fillit/solve.c" "/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/solve.c.o"
+  "/Users/lcarmelo/Fillit/take_tetrimino.c" "/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles/Fillit.dir/take_tetrimino.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "../."
   "../includes"
   "../libft"
   )
