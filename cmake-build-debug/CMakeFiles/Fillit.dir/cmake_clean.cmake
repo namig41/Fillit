@@ -62,6 +62,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Fillit.dir/libft/ft_tolower.c.o"
   "CMakeFiles/Fillit.dir/libft/ft_toupper.c.o"
   "CMakeFiles/Fillit.dir/get_next_line.c.o"
+  "CMakeFiles/Fillit.dir/fill_figure.c.o"
   "CMakeFiles/Fillit.dir/main.c.o"
   "CMakeFiles/Fillit.dir/solve.c.o"
   "CMakeFiles/Fillit.dir/take_tetrimino.c.o"

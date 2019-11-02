@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/lcarmelo/Fillit/fill_figure.c">
+			<Option target="Fillit"/>
+		</Unit>
 		<Unit filename="/Users/lcarmelo/Fillit/get_next_line.c">
 			<Option target="Fillit"/>
 		</Unit>

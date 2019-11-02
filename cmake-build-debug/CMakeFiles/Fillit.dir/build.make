@@ -876,9 +876,22 @@ CMakeFiles/Fillit.dir/get_next_line.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/get_next_line.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcarmelo/Fillit/get_next_line.c -o CMakeFiles/Fillit.dir/get_next_line.c.s
 
+CMakeFiles/Fillit.dir/fill_figure.c.o: CMakeFiles/Fillit.dir/flags.make
+CMakeFiles/Fillit.dir/fill_figure.c.o: ../fill_figure.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/Fillit.dir/fill_figure.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/fill_figure.c.o   -c /Users/lcarmelo/Fillit/fill_figure.c
+
+CMakeFiles/Fillit.dir/fill_figure.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Fillit.dir/fill_figure.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/lcarmelo/Fillit/fill_figure.c > CMakeFiles/Fillit.dir/fill_figure.c.i
+
+CMakeFiles/Fillit.dir/fill_figure.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Fillit.dir/fill_figure.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/lcarmelo/Fillit/fill_figure.c -o CMakeFiles/Fillit.dir/fill_figure.c.s
+
 CMakeFiles/Fillit.dir/main.c.o: CMakeFiles/Fillit.dir/flags.make
 CMakeFiles/Fillit.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/Fillit.dir/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/Fillit.dir/main.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/main.c.o   -c /Users/lcarmelo/Fillit/main.c
 
 CMakeFiles/Fillit.dir/main.c.i: cmake_force
@@ -891,7 +904,7 @@ CMakeFiles/Fillit.dir/main.c.s: cmake_force
 
 CMakeFiles/Fillit.dir/solve.c.o: CMakeFiles/Fillit.dir/flags.make
 CMakeFiles/Fillit.dir/solve.c.o: ../solve.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/Fillit.dir/solve.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/Fillit.dir/solve.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/solve.c.o   -c /Users/lcarmelo/Fillit/solve.c
 
 CMakeFiles/Fillit.dir/solve.c.i: cmake_force
@@ -904,7 +917,7 @@ CMakeFiles/Fillit.dir/solve.c.s: cmake_force
 
 CMakeFiles/Fillit.dir/take_tetrimino.c.o: CMakeFiles/Fillit.dir/flags.make
 CMakeFiles/Fillit.dir/take_tetrimino.c.o: ../take_tetrimino.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/Fillit.dir/take_tetrimino.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/Fillit.dir/take_tetrimino.c.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Fillit.dir/take_tetrimino.c.o   -c /Users/lcarmelo/Fillit/take_tetrimino.c
 
 CMakeFiles/Fillit.dir/take_tetrimino.c.i: cmake_force
@@ -980,6 +993,7 @@ Fillit_OBJECTS = \
 "CMakeFiles/Fillit.dir/libft/ft_tolower.c.o" \
 "CMakeFiles/Fillit.dir/libft/ft_toupper.c.o" \
 "CMakeFiles/Fillit.dir/get_next_line.c.o" \
+"CMakeFiles/Fillit.dir/fill_figure.c.o" \
 "CMakeFiles/Fillit.dir/main.c.o" \
 "CMakeFiles/Fillit.dir/solve.c.o" \
 "CMakeFiles/Fillit.dir/take_tetrimino.c.o"
@@ -1050,12 +1064,13 @@ Fillit: CMakeFiles/Fillit.dir/libft/ft_strtrim.c.o
 Fillit: CMakeFiles/Fillit.dir/libft/ft_tolower.c.o
 Fillit: CMakeFiles/Fillit.dir/libft/ft_toupper.c.o
 Fillit: CMakeFiles/Fillit.dir/get_next_line.c.o
+Fillit: CMakeFiles/Fillit.dir/fill_figure.c.o
 Fillit: CMakeFiles/Fillit.dir/main.c.o
 Fillit: CMakeFiles/Fillit.dir/solve.c.o
 Fillit: CMakeFiles/Fillit.dir/take_tetrimino.c.o
 Fillit: CMakeFiles/Fillit.dir/build.make
 Fillit: CMakeFiles/Fillit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Linking C executable Fillit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/lcarmelo/Fillit/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Linking C executable Fillit"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Fillit.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

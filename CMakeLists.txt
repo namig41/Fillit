@@ -75,6 +75,7 @@ add_executable(Fillit
         libft/ft_toupper.c
         libft/libft.h
         get_next_line.c
+        fill_figure.c
         main.c
         solve.c
         take_tetrimino.c)

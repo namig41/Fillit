@@ -123,6 +123,33 @@ Fillit/fast:
 	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/build
 .PHONY : Fillit/fast
 
+fill_figure.o: fill_figure.c.o
+
+.PHONY : fill_figure.o
+
+# target to build an object file
+fill_figure.c.o:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/fill_figure.c.o
+.PHONY : fill_figure.c.o
+
+fill_figure.i: fill_figure.c.i
+
+.PHONY : fill_figure.i
+
+# target to preprocess a source file
+fill_figure.c.i:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/fill_figure.c.i
+.PHONY : fill_figure.c.i
+
+fill_figure.s: fill_figure.c.s
+
+.PHONY : fill_figure.s
+
+# target to generate assembly for a file
+fill_figure.c.s:
+	$(MAKE) -f CMakeFiles/Fillit.dir/build.make CMakeFiles/Fillit.dir/fill_figure.c.s
+.PHONY : fill_figure.c.s
+
 get_next_line.o: get_next_line.c.o
 
 .PHONY : get_next_line.o
@@ -1914,6 +1941,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Fillit"
+	@echo "... fill_figure.o"
+	@echo "... fill_figure.i"
+	@echo "... fill_figure.s"
 	@echo "... get_next_line.o"
 	@echo "... get_next_line.i"
 	@echo "... get_next_line.s"

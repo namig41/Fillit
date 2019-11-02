@@ -27,6 +27,7 @@ void            delete_tetro_list()
             free(g_tetro_list[i].shape[j]);
         free(g_tetro_list[i].shape);
     }
+    exit(0);
 }
 
 void            parse_file(int fd)
@@ -38,36 +39,28 @@ void            parse_file(int fd)
     while (1)
     {
         i = 0;
-        g_tetro_list[g_max_size].shape = (char **)malloc(sizeof(char *) * N);
+        if (!(g_tetro_list[g_max_size].shape = (char **)malloc(sizeof(char *) * N)))
+            delete_tetro_list();
         while (i < N)
         {
             if (get_next_line(fd, &g_tetro_list[g_max_size].shape[i]) < 0)
-            {
                 delete_tetro_list();
-                exit(0);
-            }
             i++;
         }
         go_through_lines(&g_tetro_list[g_max_size]);
+        g_tetro_list[g_max_size].letter = 'A' + g_max_size;
         if ((ch = get_next_line(fd, &line)) >= 0 && !*line)
         {
             if (!ch)
             {
                 g_max_size++;
-                break ;
+                return ;
             }
-            else
-            {
-                g_max_size++;
-                continue;
-            }
-                
         }
         else
         {
             free(line);
             delete_tetro_list();
-            exit(0);
         }
         g_max_size++;
     }

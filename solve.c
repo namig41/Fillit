@@ -46,7 +46,6 @@ int		init_map(char ***map, int map_size)
 		j = -1;
 		while (++j < map_size)
 			(*map)[i][j] = '.';
-		(*map)[i][j] = '\0';
 	}
 	return (1);
 }
@@ -84,10 +83,8 @@ void 	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 	{
 		j = -1;
 		while (++j < obj->width)
-		{
 			if (obj->shape[i][j] != '.' && map[i + off_i][j + off_j] == obj->letter)
 				map[i + off_i][j + off_j] = '.';
-		}
 	}
 }
 
@@ -103,17 +100,15 @@ int		walk(char **map, t_tetriminos *obj, int map_size)
 	{
 		off_j = -1;
 		while (++off_j <= map_size - obj->width)
-		{
 			if (map[off_i][off_j] == '.' && draw_shape(map, obj, off_i, off_j))
 				return (1);
-		}
 	}
 	return (0);
 }
 
 int		search(char **map, t_tetriminos *shapes, int count_figure, int current_shape, int map_size)
 {
-	if (count_figure == current_shape)
+	if (current_shape == count_figure)
 	{
 		draw_map(map, map_size);
 		return (1);
