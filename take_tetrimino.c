@@ -12,6 +12,8 @@
 
 # include "includes/take_tetrimino.h"
 
+int g_max_size = 0;
+
 void            delete_tetro_list()
 {
     int i;
@@ -39,15 +41,28 @@ void            parse_file(int fd)
         g_tetro_list[g_max_size].shape = (char **)malloc(sizeof(char *) * N);
         while (i < N)
         {
-            if ((ch = get_next_line(fd, &g_tetro_list[g_max_size].shape[i])) < 0)
+            if (get_next_line(fd, &g_tetro_list[g_max_size].shape[i]) < 0)
             {
                 delete_tetro_list();
                 exit(0);
             }
             i++;
         }
-        if ((ch = get_next_line(fd, &line)) >= 0 && !line && !ch)   
-            return ;
+        go_through_lines(&g_tetro_list[g_max_size]);
+        if ((ch = get_next_line(fd, &line)) >= 0 && !*line)
+        {
+            if (!ch)
+            {
+                g_max_size++;
+                break ;
+            }
+            else
+            {
+                g_max_size++;
+                continue;
+            }
+                
+        }
         else
         {
             free(line);
@@ -55,5 +70,19 @@ void            parse_file(int fd)
             exit(0);
         }
         g_max_size++;
+    }
+
+    int j;
+    i = 0;
+    while (i < g_max_size)
+    {
+        j = 0;
+        while (j < N)
+        {
+            ft_putendl(g_tetro_list[i].shape[j]);
+            j++;
+        }
+        ft_putchar('\n');
+        i++;
     }
 }

@@ -2,60 +2,11 @@
 #include "includes/solve.h"
 #include "includes/take_tetrimino.h"
 
-//void draw(t_tetriminos *t, int count)
-//{
-//    for (int i=0; i < count; i++)
-//    {
-//        for (size_t j = 0; j < t[i].height; j++)
-//        {
-//            for (size_t z = 0; z < t[i].width; z++)
-//            {
-//               ft_putchar(t[i].shape[j][z]); 
-//            }
-//            ft_putchar('\n');
-//        }
-//            ft_putchar('\n');
-//    }
-//}
-
-int main()
+int main(int argc, char *argv[])
 {
-    //g_tetro_list[0].shape = (char **)malloc(sizeof(char) * 3);
-    //g_tetro_list[0].shape[0] = (char *)malloc(sizeof(char) * 2); 
-    //g_tetro_list[0].shape[1] = (char *)malloc(sizeof(char) * 2); 
-    //g_tetro_list[0].shape[2] = (char *)malloc(sizeof(char) * 2); 
-
-   // g_tetro_list[0].shape[0] = ".x";
-   // g_tetro_list[0].shape[1] = "xx";
-   // g_tetro_list[0].shape[2] = "x.";
-   // g_tetro_list[0].height = 3;
-   // g_tetro_list[0].width = 2;
-   // g_tetro_list[0].letter = 'A';
-
-   // g_tetro_list[1].shape = (char **)malloc(sizeof(char) * 3);
-   // g_tetro_list[1].shape[0] = (char *)malloc(sizeof(char) * 2); 
-   // g_tetro_list[1].shape[1] = (char *)malloc(sizeof(char) * 2); 
-   // g_tetro_list[1].shape[2] = (char *)malloc(sizeof(char) * 2); 
-   // g_tetro_list[1].shape[0] = "x.";
-   // g_tetro_list[1].shape[1] = "xx";
-   // g_tetro_list[1].shape[2] = ".x";
-   // g_tetro_list[1].height = 3;
-   // g_tetro_list[1].width = 2;
-   // g_tetro_list[1].letter = 'B';
-
-   // g_tetro_list[2].shape = (char **)malloc(sizeof(char) * 2);
-   // g_tetro_list[2].shape[0] = (char *)malloc(sizeof(char) * 2); 
-   // g_tetro_list[2].shape[1] = (char *)malloc(sizeof(char) * 2); 
-   // g_tetro_list[2].shape[0] = "xx";
-   // g_tetro_list[2].shape[1] = "xx";
-   // g_tetro_list[2].height = 2;
-   // g_tetro_list[2].width = 2;
-   // g_tetro_list[2].letter = 'C';
-
-    //search_solve(g_tetro_list, 3, 4);
-
     int fd = open("input_test1", O_RDONLY);
 
     parse_file(fd);
+
     return (0);
 }

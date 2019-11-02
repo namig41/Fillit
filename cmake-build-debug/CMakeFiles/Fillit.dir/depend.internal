@@ -3,7 +3,7 @@
 
 CMakeFiles/Fillit.dir/get_next_line.c.o
  /Users/lcarmelo/Fillit/get_next_line.c
- /Users/lcarmelo/Fillit/get_next_line.h
+ /Users/lcarmelo/Fillit/includes/get_next_line.h
  /Users/lcarmelo/Fillit/libft/libft.h
 CMakeFiles/Fillit.dir/libft/ft_atoi.c.o
  /Users/lcarmelo/Fillit/libft/ft_atoi.c
@@ -190,7 +190,9 @@ CMakeFiles/Fillit.dir/libft/ft_toupper.c.o
  /Users/lcarmelo/Fillit/libft/libft.h
 CMakeFiles/Fillit.dir/main.c.o
  /Users/lcarmelo/Fillit/includes/fillit.h
+ /Users/lcarmelo/Fillit/includes/get_next_line.h
  /Users/lcarmelo/Fillit/includes/solve.h
+ /Users/lcarmelo/Fillit/includes/take_tetrimino.h
  /Users/lcarmelo/Fillit/libft/libft.h
  /Users/lcarmelo/Fillit/main.c
 CMakeFiles/Fillit.dir/solve.c.o
@@ -198,3 +200,9 @@ CMakeFiles/Fillit.dir/solve.c.o
  /Users/lcarmelo/Fillit/includes/solve.h
  /Users/lcarmelo/Fillit/libft/libft.h
  /Users/lcarmelo/Fillit/solve.c
+CMakeFiles/Fillit.dir/take_tetrimino.c.o
+ /Users/lcarmelo/Fillit/includes/fillit.h
+ /Users/lcarmelo/Fillit/includes/get_next_line.h
+ /Users/lcarmelo/Fillit/includes/take_tetrimino.h
+ /Users/lcarmelo/Fillit/libft/libft.h
+ /Users/lcarmelo/Fillit/take_tetrimino.c

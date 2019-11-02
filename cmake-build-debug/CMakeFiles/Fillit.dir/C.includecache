@@ -13,12 +13,32 @@ fcntl.h
 -
 unistd.h
 -
+../libft/libft.h
+/Users/lcarmelo/Fillit/libft/libft.h
+
+/Users/lcarmelo/Fillit/includes/get_next_line.h
+sys/types.h
+-
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+../libft/libft.h
+/Users/lcarmelo/Fillit/libft/libft.h
 
 /Users/lcarmelo/Fillit/includes/solve.h
 ../libft/libft.h
 /Users/lcarmelo/Fillit/libft/libft.h
 fillit.h
 /Users/lcarmelo/Fillit/includes/fillit.h
+
+/Users/lcarmelo/Fillit/includes/take_tetrimino.h
+fillit.h
+/Users/lcarmelo/Fillit/includes/fillit.h
+get_next_line.h
+/Users/lcarmelo/Fillit/includes/get_next_line.h
 
 /Users/lcarmelo/Fillit/libft/libft.h
 stdlib.h
@@ -28,7 +48,13 @@ unistd.h
 string.h
 -
 
-/Users/lcarmelo/Fillit/solve.c
+/Users/lcarmelo/Fillit/main.c
+includes/fillit.h
+/Users/lcarmelo/Fillit/includes/fillit.h
 includes/solve.h
 /Users/lcarmelo/Fillit/includes/solve.h
+includes/take_tetrimino.h
+/Users/lcarmelo/Fillit/includes/take_tetrimino.h
+stdio.h
+-
 
