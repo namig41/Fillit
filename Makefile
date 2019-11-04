@@ -26,26 +26,26 @@ SRC_NAME = main \
 LIB_NAME = libft
 
 SRCS = $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_NAME)))
-OBJS = $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_NAME)))
-LIBS = $(addprefix $(LIB_DIR), $(addsuffix .a, $(LIB)))
+OBJS = $(addsuffix .o, $(SRC_NAME))
+LIBS = $(addprefix $(LIB_DIR), $(addsuffix .a, $(LIB_NAME)))
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR) -I$(LIB_DIR) $(LIBS)
+CFLAGS = -I$(INC_DIR) -I$(LIB_DIR)
 
 all: $(NAME)
 
 obj:
-	mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $(SRCS) 
 
 $(NAME): lib obj
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME) 
 
 lib:
-	make re $(LIB_DIR)
+	make -C $(LIB_DIR)
 
 clean:
-	rm -rf $(OBJ_DIR)
+	make fclean -C $(LIB_DIR)
+	rm -r $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
