@@ -90,7 +90,7 @@ void 				go_through_lines(t_tetriminos *temp)
 	char 			**x;
 
 	i = -1;
-	temp->height =N;
+	temp->height = N;
 	temp->width = N;
 	while (++i < N)
 	{

@@ -12,7 +12,6 @@
 
 #ifndef SOLVE_H
 # define SOLVE_H
-# include "libft.h"
 # include "fillit.h"
 
 void	search_solve(t_tetriminos *shapes, int count_figure, int min_map_size);
