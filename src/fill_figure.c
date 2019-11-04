@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 void		fill_tetrimino(char **x, t_tetriminos *temp)
 {

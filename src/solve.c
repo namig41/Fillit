@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solve.h"
+#include "solve.h"
 
 void	draw_map(char **map, int map_size)
 {
@@ -88,19 +88,17 @@ void 	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 	}
 }
 
-int		walk(char **map, t_tetriminos *obj, int map_size)
+int		walk(char **map, t_tetriminos *obj, int map_size, int *ci, int *cj)
 {
 	int off_i;
 	int off_j;
-    int flag;
 
-	off_i = -1;
-    flag = 0;
+	off_i = *ci;
 	while (++off_i <= map_size - obj->height) 
 	{
-		off_j = -1;
+		off_j = *cj;
 		while (++off_j <= map_size - obj->width)
-			if (map[off_i][off_j] == '.' && draw_shape(map, obj, off_i, off_j))
+			if (map[*ci = off_i][*cj = off_j] == '.' && draw_shape(map, obj, off_i, off_j))
 				return (1);
 	}
 	return (0);
@@ -108,6 +106,11 @@ int		walk(char **map, t_tetriminos *obj, int map_size)
 
 int		search(char **map, t_tetriminos *shapes, int count_figure, int current_shape, int map_size)
 {
+    int ci;
+    int cj;
+
+    ci = -1;
+    cj = -1;
 	if (current_shape == count_figure)
 	{
 		draw_map(map, map_size);
@@ -115,11 +118,10 @@ int		search(char **map, t_tetriminos *shapes, int count_figure, int current_shap
 	}
 	while (current_shape < count_figure)
 	{
-		if (!walk(map, &shapes[current_shape], map_size))
+		if (!walk(map, &shapes[current_shape], map_size, &ci, &cj))
 			return (0);
 		if (search(map, shapes, count_figure, current_shape + 1, map_size))
 			return (1);
-		current_shape++;
 	}
 	return (0);
 }

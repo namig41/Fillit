@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "libft.h"
 # define N 4
 
 typedef struct	s_tetriminos

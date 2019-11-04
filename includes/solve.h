@@ -13,7 +13,7 @@
 #ifndef SOLVE_H
 # define SOLVE_H
 
-#include "../libft/libft.h"
+#include "libft.h"
 #include "fillit.h"
 
 void	search_solve(t_tetriminos *shapes, int count_figure, int min_map_size);
@@ -22,6 +22,6 @@ void	destroy_map(char ***map, int map_size);
 void	draw_map(char **map, int map_size);
 int     draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
 void    delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
-int     walk(char **map, t_tetriminos *obj, int map_size);
+int     walk(char **map, t_tetriminos *obj, int map_size, int *ci, int *cj);
 
 #endif

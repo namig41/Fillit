@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "includes/take_tetrimino.h"
+# include "take_tetrimino.h"
 
 int g_max_size = 0;
 
