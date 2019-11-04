@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "solve.h"
+#include <stdio.h>
 
 void	draw_map(char **map, int map_size)
 {
@@ -46,6 +47,7 @@ int		init_map(char ***map, int map_size)
 		j = -1;
 		while (++j < map_size)
 			(*map)[i][j] = '.';
+		(*map)[i][j] = '\0';
 	}
 	return (1);
 }
@@ -61,13 +63,13 @@ int		draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 		j = -1;
 		while (++j < obj->width)
 		{
-			if (obj->shape[i][j] != '.' && map[i + off_i][j + off_j] != '.')
+			if (obj->shape[i][j] != '.' && map[off_i + i][off_j + j] == '.')
+				map[i + off_i][j + off_j] = obj->letter;
+			else if (obj->shape[i][j] != '.' && map[off_i + i][off_j + j] != '.')
 			{
 				delete_shape(map, obj, off_i, off_j);
 				return (0);
 			}
-			if (obj->shape[i][j] != '.')
-				map[i + off_i][j + off_j] = obj->letter;
 		}
 	}
 	return (1);
@@ -88,17 +90,17 @@ void 	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 	}
 }
 
-int		walk(char **map, t_tetriminos *obj, int map_size, int *ci, int *cj)
+int		walk(char **map, t_tetriminos *obj, int map_size, int i, int j)
 {
 	int off_i;
 	int off_j;
 
-	off_i = *ci;
+	off_i = i;
 	while (++off_i <= map_size - obj->height) 
 	{
-		off_j = *cj;
+		off_j = j;
 		while (++off_j <= map_size - obj->width)
-			if (map[*ci = off_i][*cj = off_j] == '.' && draw_shape(map, obj, off_i, off_j))
+			if ((map[off_i][off_j] == '.' || (map[off_i][off_j] != '.' && obj->shape[0][0] == '.')) && draw_shape(map, obj, off_i, off_j))
 				return (1);
 	}
 	return (0);
@@ -106,22 +108,32 @@ int		walk(char **map, t_tetriminos *obj, int map_size, int *ci, int *cj)
 
 int		search(char **map, t_tetriminos *shapes, int count_figure, int current_shape, int map_size)
 {
-    int ci;
-    int cj;
+    int i;
+    int j;
 
-    ci = -1;
-    cj = -1;
+    i = -1;
+	if (map_size == 6){
+
+	draw_map(map, map_size);
+	ft_putchar('\n');
+	}
 	if (current_shape == count_figure)
 	{
 		draw_map(map, map_size);
 		return (1);
 	}
-	while (current_shape < count_figure)
+	while (++i < map_size)
 	{
-		if (!walk(map, &shapes[current_shape], map_size, &ci, &cj))
-			return (0);
-		if (search(map, shapes, count_figure, current_shape + 1, map_size))
-			return (1);
+		j = -1;
+		while (++j < map_size)
+		{
+			if (!walk(map, &shapes[current_shape], map_size, i - 1, j - 1))
+				return (0);
+			if (search(map, shapes, count_figure, current_shape + 1, map_size))
+				return (1);
+			else
+				delete_shape(map, &shapes[current_shape], i, j);
+		}
 	}
 	return (0);
 }

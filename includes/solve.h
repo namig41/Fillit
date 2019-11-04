@@ -20,6 +20,6 @@ void	destroy_map(char ***map, int map_size);
 void	draw_map(char **map, int map_size);
 int     draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
 void    delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
-int     walk(char **map, t_tetriminos *obj, int map_size, int *ci, int *cj);
+int     walk(char **map, t_tetriminos *obj, int map_size, int i, int j);
 
 #endif

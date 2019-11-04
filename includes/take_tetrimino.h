@@ -15,7 +15,7 @@
 # include "fillit.h"
 # include "get_next_line.h"
 
-void    parse_file(int fd);
-void    delete_tetro_list();
+void    delete_tetro_list(int g_max_size);
+int     parse_file(int fd);
 
 #endif

@@ -5,8 +5,9 @@
 int main(void)
 {
     int fd = open("input_test1", O_RDONLY);
+    int size;
 
-    parse_file(fd);
-    search_solve(g_tetro_list, 2, 4);
+    size = parse_file(fd);
+    search_solve(g_tetro_list, size, 1);
     return (0);
 }

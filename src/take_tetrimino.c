@@ -12,9 +12,7 @@
 
 # include "take_tetrimino.h"
 
-int g_max_size = 0;
-
-void            delete_tetro_list()
+void            delete_tetro_list(int g_max_size)
 {
     int i;
     int j;
@@ -23,45 +21,46 @@ void            delete_tetro_list()
     while (++i < g_max_size)
     {
         j = -1;
-        while (++j < N)
-            free(g_tetro_list[i].shape[j]);
-        free(g_tetro_list[i].shape);
+        while (++j < TETRO_SIZE)
+            ft_memdel((void **)&g_tetro_list[i].shape[j]);
+        ft_memdel((void **)&g_tetro_list[i].shape);
     }
     exit(0);
 }
 
-void            parse_file(int fd)
+int             parse_file(int fd)
 {
     int         i;
+    int         g_max_size;
     int         ch;
     char        *line;
 
+    line = NULL;
+    g_max_size = 0;
     while (1)
     {
         i = 0;
-        if (!(g_tetro_list[g_max_size].shape = (char **)malloc(sizeof(char *) * N)))
-            delete_tetro_list();
-        while (i < N)
+        if (!(g_tetro_list[g_max_size].shape = (char **)malloc(sizeof(char *) * TETRO_SIZE)))
+            delete_tetro_list(g_max_size);
+        while (i < TETRO_SIZE)
         {
-            if (get_next_line(fd, &g_tetro_list[g_max_size].shape[i]) < 0)
-                delete_tetro_list();
+            if (get_next_line(fd, &g_tetro_list[g_max_size].shape[i]) <= 0)
+                delete_tetro_list(g_max_size);
             i++;
         }
         go_through_lines(&g_tetro_list[g_max_size]);
         g_tetro_list[g_max_size].letter = 'A' + g_max_size;
-        if ((ch = get_next_line(fd, &line)) >= 0 && !*line)
+        if ((ch = get_next_line(fd, &line)) >= 0 && !ch)
         {
-            if (!ch)
-            {
-                g_max_size++;
-                return ;
-            }
+            g_max_size++;
+            return (g_max_size);
         }
-        else
+        else if (line && *line)
         {
-            free(line);
-            delete_tetro_list();
+            ft_memdel((void **)&line);
+            delete_tetro_list(g_max_size);
         }
         g_max_size++;
     }
+    return (g_max_size);
 }

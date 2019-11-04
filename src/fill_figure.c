@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cut.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngale <marvin@N2.fr>                       +#+  +:+       +#+        */
+/*   By: ngale <marvin@TETRO_SIZE2.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/26 17:51:NN by ngale             #+#    #+#             */
-/*   Updated: 2019/11/02 15:05:3N by ngale            ###   ########.fr       */
+/*   Created: 2019/10/26 17:51:TETRO_SIZETETRO_SIZE by ngale             #+#    #+#             */
+/*   Updated: 2019/11/02 15:05:3TETRO_SIZE by ngale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ void		fill_tetrimino(char **x, t_tetriminos *temp)
 
 	i = -1;
 	m = 0;
-	while (++i < N)
+	while (++i < TETRO_SIZE)
 	{
 		if ((i != 0) && ((n + 1) == temp->width) && ((m + 1) < temp->height))
 			m++;
 		n = -1;
 		j = -1;
-		while (++j < N)
+		while (++j < TETRO_SIZE)
 			if (temp->shape[i][j] == '.' || temp->shape[i][j] == '#')
 				x[m][++n] = temp->shape[i][j];
 	}
 	i = -1;
-	while (++i < N)
+	while (++i < TETRO_SIZE)
 		free(temp->shape[i]);
 	free(temp->shape);
 	temp->shape = x;	
@@ -44,13 +44,11 @@ char 		**create_array(int wid, int high)
 	char 	**x;
 
 	i = -1;
-	x = (char **)malloc(sizeof(char *) * high);
+	if (!(x = (char **)malloc(sizeof(char *) * high)))
+		return (NULL);
 	while (++i < high)
-	{
-		x[i] = (char *)malloc(sizeof(char) * wid);
-		x[i][wid - 1] = '\0';
-	}
-	x[i] = NULL;
+		if (!(x[i] = (char *)malloc(sizeof(char *) * high)))
+			return (NULL);
 	return (x);
 }
 
@@ -61,24 +59,24 @@ void		go_through_columns(char **x, t_tetriminos *temp)
 	int		j;
 
 	j = -1;
-	while (++j < N)
+	while (++j < TETRO_SIZE)
 	{
 		i = -1;
 		kol = 0;
-		while (++i < N)
+		while (++i < TETRO_SIZE)
 		{
 			if (temp->shape[i][j] == '.' || temp->shape[i][j] == '0')
 				kol++;
 		}
-		if (kol == N)
+		if (kol == TETRO_SIZE)
 		{
 			temp->width -= 1;
 			i = 0;
-			while (i < N)
+			while (i < TETRO_SIZE)
 				temp->shape[i++][j] = '0';
 		}
 	}
-	x = create_array(temp->width + 1, temp->height + 1);
+	x = create_array(temp->width, temp->height);
 	fill_tetrimino(x, temp);
 }
 
@@ -90,19 +88,19 @@ void 				go_through_lines(t_tetriminos *temp)
 	char 			**x;
 
 	i = -1;
-	temp->height = N;
-	temp->width = N;
-	while (++i < N)
+	temp->height = TETRO_SIZE;;
+	temp->width = TETRO_SIZE;
+	while (++i < TETRO_SIZE)
 	{
 		j = -1;
 			kol = 0;
-			while (++j < N && temp->shape[i][j] == '.')
+			while (++j < TETRO_SIZE && temp->shape[i][j] == '.')
 			kol++;
-		if (kol == N)
+		if (kol == TETRO_SIZE)
 		{
 			temp->height -= 1;
 			j = -1;
-			while (++j < N)
+			while (++j < TETRO_SIZE)
 				temp->shape[i][j] = '0';
 		}
 	}

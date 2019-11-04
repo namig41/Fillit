@@ -17,7 +17,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "libft.h"
-# define N 4
+# define TETRO_SIZE 4
 
 typedef struct	s_tetriminos
 {
@@ -30,8 +30,8 @@ typedef struct	s_tetriminos
 t_tetriminos	g_tetro_list[26];
 
 void			fill_tetrimino(char **x, t_tetriminos *temp);
-char			**create_array(int wid, int high);
 void			go_through_columns(char **x, t_tetriminos *temp);
 void 			go_through_lines(t_tetriminos *temp);
+char			**create_array(int wid, int high);
 
 #endif
