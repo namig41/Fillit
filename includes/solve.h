@@ -12,14 +12,12 @@
 
 #ifndef SOLVE_H
 # define SOLVE_H
-# include "fillit.h"
+# include "take_tetrimino.h"
 
-void	search_solve(t_tetriminos *shapes, int count_figure, int min_map_size);
-int     init_map(char ***map, int map_size);
-void	destroy_map(char ***map, int map_size);
-void	draw_map(char **map, int map_size);
+void	search_solve(t_tetriminos *shapes, int count_figure);
+int     init_map(char ***map);
 int     draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
 void    delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
-int     walk(char **map, t_tetriminos *obj, int map_size, int i, int j);
+int     walk(char **map, t_tetriminos *obj, int i, int j);
 
 #endif

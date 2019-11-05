@@ -21,7 +21,9 @@ SRC_NAME = main \
 			fill_figure \
 			take_tetrimino \
 			get_next_line \
-			solve
+			solve \
+			checkers \
+			valid_checker
 
 LIB_NAME = libft
 
@@ -35,10 +37,10 @@ CFLAGS = -I$(INC_DIR) -I$(LIB_DIR)
 all: $(NAME)
 
 obj:
-	$(CC) $(CFLAGS) -c $(SRCS) 
+	$(CC) $(CFLAGS) -c $(SRCS)
 
 $(NAME): lib obj
-	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME) 
+	$(CC) $(CFLAGS) $(OBJS) $(LIBS) -o $(NAME)
 
 lib:
 	make -C $(LIB_DIR)

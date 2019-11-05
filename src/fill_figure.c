@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cut.c                                              :+:      :+:    :+:   */
+/*   fill_figure.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngale <marvin@TETRO_SIZE2.fr>                       +#+  +:+       +#+        */
+/*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/26 17:51:TETRO_SIZETETRO_SIZE by ngale             #+#    #+#             */
-/*   Updated: 2019/11/02 15:05:3TETRO_SIZE by ngale            ###   ########.fr       */
+/*   Created: 2019/11/05 15:15:24 by lcarmelo          #+#    #+#             */
+/*   Updated: 2019/11/05 17:35:29 by lcarmelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void		fill_tetrimino(char **x, t_tetriminos *temp)
 	while (++i < TETRO_SIZE)
 		free(temp->shape[i]);
 	free(temp->shape);
-	temp->shape = x;	
+	temp->shape = x;
 }
 
-char 		**create_array(int wid, int high)
+char		**create_array(int wid, int high)
 {
 	int		i;
-	char 	**x;
+	char	**x;
 
 	i = -1;
 	if (!(x = (char **)malloc(sizeof(char *) * high)))
@@ -71,30 +71,30 @@ void		go_through_columns(char **x, t_tetriminos *temp)
 		if (kol == TETRO_SIZE)
 		{
 			temp->width -= 1;
-			i = 0;
-			while (i < TETRO_SIZE)
-				temp->shape[i++][j] = '0';
+			i = -1;
+			while (++i < TETRO_SIZE)
+				temp->shape[i][j] = '0';
 		}
 	}
 	x = create_array(temp->width, temp->height);
 	fill_tetrimino(x, temp);
 }
 
-void 				go_through_lines(t_tetriminos *temp)
+void		go_through_lines(t_tetriminos *temp)
 {
-	int				kol;
-	int				i;
-	int				j;
-	char 			**x;
+	int		kol;
+	int		i;
+	int		j;
+	char	**x;
 
 	i = -1;
-	temp->height = TETRO_SIZE;;
+	temp->height = TETRO_SIZE;
 	temp->width = TETRO_SIZE;
 	while (++i < TETRO_SIZE)
 	{
 		j = -1;
-			kol = 0;
-			while (++j < TETRO_SIZE && temp->shape[i][j] == '.')
+		kol = 0;
+		while (++j < TETRO_SIZE && temp->shape[i][j] == '.')
 			kol++;
 		if (kol == TETRO_SIZE)
 		{
