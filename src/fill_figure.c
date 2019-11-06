@@ -28,7 +28,7 @@ void		fill_tetrimino(char **x, t_tetriminos *temp)
 		n = -1;
 		j = -1;
 		while (++j < TETRO_SIZE)
-			if (temp->shape[i][j] == '.' || temp->shape[i][j] == '#')
+			if (temp->shape[i][j] != '0')
 				x[m][++n] = temp->shape[i][j];
 	}
 	i = -1;

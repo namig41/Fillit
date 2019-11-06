@@ -22,8 +22,6 @@ SRC_NAME = main \
 			take_tetrimino \
 			get_next_line \
 			solve \
-			checkers \
-			valid_checker
 
 LIB_NAME = libft
 
@@ -47,7 +45,7 @@ lib:
 
 clean:
 	make fclean -C $(LIB_DIR)
-	rm -r $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

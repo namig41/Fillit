@@ -1,16 +1,14 @@
 cmake_minimum_required(VERSION 3.14)
-project(Fillit)
+project(Fillit C)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_C_STANDARD 11)
 
 include_directories(includes)
 include_directories(libft)
-include_directories(src)
 
 add_executable(Fillit
         includes/fillit.h
         includes/get_next_line.h
-        includes/header.h
         includes/solve.h
         includes/take_tetrimino.h
         libft/ft_atoi.c
@@ -76,13 +74,8 @@ add_executable(Fillit
         libft/ft_tolower.c
         libft/ft_toupper.c
         libft/libft.h
-        libft/Makefile
-        src/checkers.c
         src/fill_figure.c
         src/get_next_line.c
         src/main.c
         src/solve.c
-        src/take_tetrimino.c
-        src/valid_checker.c
-        input_test1
-        Makefile)
+        src/take_tetrimino.c)

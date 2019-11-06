@@ -18,6 +18,5 @@ void	search_solve(t_tetriminos *shapes, int count_figure);
 int     init_map(char ***map);
 int     draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
 void    delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
-int     walk(char **map, t_tetriminos *obj, int i, int j);
 
 #endif
