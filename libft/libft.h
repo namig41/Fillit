@@ -114,6 +114,7 @@ t_list						*ft_lstmap(t_list *lst,
 
 int							ft_max(int a, int b);
 int							ft_min(int a, int b);
+size_t						ft_sqrt(size_t num);
 t_ui						ft_random(t_ui rand_max);
 
 #endif

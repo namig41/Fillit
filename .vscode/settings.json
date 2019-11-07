@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "take_tetrimino.h": "c",
-        "get_next_line.h": "c",
-        "fillit.h": "c"
-    }
-}

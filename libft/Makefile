@@ -77,6 +77,7 @@ MY_FUNCS = \
 		ft_min \
 		ft_random \
 		ft_strsave \
+		ft_sqrt \
 
 
 ALL_FUNCS = $(FUNCS_1) $(FUNCS_2) $(FUNCS_3) $(MY_FUNCS)

@@ -6,44 +6,26 @@
 /*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 17:15:51 by lcarmelo          #+#    #+#             */
-/*   Updated: 2019/11/06 17:16:41 by lcarmelo         ###   ########.fr       */
+/*   Updated: 2019/11/07 15:12:53 by lcarmelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solve.h"
 
-unsigned int			ft_root(unsigned int figs_num)
+int				init_map(char ***map)
 {
-	unsigned int root;
-	unsigned int i;
-
-	root = figs_num * 4;
-	if (root + 1 < root)
-		return (0);
-	i = 2;
-	while (i <= root)
-	{
-		if (i * i >= root)
-			return (i);
-		i++;
-	}
-	return (0);
-}
-
-int		init_map(char ***map)
-{
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	i = -1;
 	if (!(*map = (char **)malloc(sizeof(char *) * g_max_size)))
-		delete_tetro_list();
+		delete_tetro_list(TETRO_SIZE);
 	while (++i < g_max_size)
 	{
 		if (!((*map)[i] = (char *)malloc(sizeof(char) * (g_max_size + 1))))
 		{
-			delete_2d(map);
-			delete_tetro_list();
+			delete_2d(map, i);
+			delete_tetro_list(TETRO_SIZE);
 		}
 		j = -1;
 		while (++j < g_max_size)
@@ -53,21 +35,20 @@ int		init_map(char ***map)
 	return (1);
 }
 
-int		draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
+int				draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	i = -1;
-	if ((map[off_i][off_j] == '.' || (map[off_i][off_j] != '.' && obj->shape[0][0] == '.')))
-	{
+	if ((map[off_i][off_j] == '.' ||
+		(map[off_i][off_j] != '.' && obj->shape[0][0] == '.')))
 		while (++i < obj->height)
 		{
 			j = -1;
 			while (++j < obj->width)
 			{
-				if (obj->shape[i][j] != '.' &&
-					map[off_i + i][off_j + j] == '.')
+				if (obj->shape[i][j] != '.' && map[off_i + i][off_j + j] == '.')
 					map[i + off_i][j + off_j] = obj->letter;
 				else if (obj->shape[i][j] != '.' &&
 					map[off_i + i][off_j + j] != '.')
@@ -77,16 +58,16 @@ int		draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 				}
 			}
 		}
-	}
 	else
 		return (0);
 	return (1);
 }
 
-void	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
+void			delete_shape(char **map, t_tetriminos *obj,
+								int off_i, int off_j)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	i = -1;
 	while (++i < obj->height)
@@ -99,10 +80,10 @@ void	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 	}
 }
 
-int		search(char **map, t_tetriminos *shapes, int count_figure, int index)
+int				search(char **map, int count_figure, int index)
 {
-	int i;
-	int j;
+	int			i;
+	int			j;
 
 	i = -1;
 	if (index == count_figure)
@@ -115,35 +96,37 @@ int		search(char **map, t_tetriminos *shapes, int count_figure, int index)
 	{
 		j = -1;
 		while (++j < g_max_size)
-		{
-			if (i <= g_max_size - shapes[index].height && j <= g_max_size - shapes[index].width && draw_shape(map, &shapes[index], i, j))
+			if (i <= g_max_size - g_tetro_list[index].height &&
+			j <= g_max_size - g_tetro_list[index].width &&
+			draw_shape(map, &g_tetro_list[index], i, j))
 			{
-				if (search(map, shapes, count_figure, index + 1))
+				if (search(map, count_figure, index + 1))
 					return (1);
 				else
-					delete_shape(map, &shapes[index], i, j);
+					delete_shape(map, &g_tetro_list[index], i, j);
 			}
-		}
 	}
 	return (0);
 }
 
-void	search_solve(t_tetriminos *shapes, int count_figure)
+void			search_solve(int count_figure)
 {
-	char **map;
-	g_max_size = ft_root(g_max_size);
+	char		**map;
 
+	g_max_size = ft_sqrt(g_max_size * 4);
 	while (1)
 	{
 		if (!init_map(&map))
 			return ;
-		if (search(map, shapes, count_figure, 0))
+		if (search(map, count_figure, 0))
 		{
-			//delete_2d(&map);
-			//delete_tetro_list();
+			delete_2d(&map, g_max_size);
+			while (--count_figure >= 0)
+				delete_2d(&g_tetro_list[count_figure].shape,
+						g_tetro_list[count_figure].height);
 			return ;
 		}
-		delete_2d(&map);
+		delete_2d(&map, g_max_size);
 		g_max_size++;
 	}
 }

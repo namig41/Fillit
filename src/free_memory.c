@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_memory.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 19:42:01 by lcarmelo          #+#    #+#             */
-/*   Updated: 2019/11/07 19:42:04 by lcarmelo         ###   ########.fr       */
+/*   Created: 2019/11/07 19:44:28 by lcarmelo          #+#    #+#             */
+/*   Updated: 2019/11/07 19:44:53 by lcarmelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solve.h"
 #include "take_tetrimino.h"
 
-int		main(int argc, char *argv[])
+void		delete_tetro_list(int h)
 {
-	int fd;
+	int		i;
+	int		j;
 
-	if (argc == 2)
+	i = -1;
+	while (++i < g_max_size)
 	{
-		fd = open(argv[1], O_RDONLY);
-		parse_file(fd);
-		search_solve(g_max_size);
+		j = -1;
+		while (++j < h)
+			ft_memdel((void **)&g_tetro_list[i].shape[j]);
+		ft_memdel((void **)&g_tetro_list[i].shape);
 	}
-	return (0);
+	ft_putendl("error");
+	exit(0);
+}
+
+void		delete_2d(char ***arr, int h)
+{
+	int i;
+
+	i = -1;
+	if (arr)
+	{
+		while (++i < h)
+			ft_memdel((void **)&(*arr)[i]);
+		ft_memdel((void **)&(*arr));
+	}
 }

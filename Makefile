@@ -22,6 +22,7 @@ SRC_NAME = main \
 			take_tetrimino \
 			get_next_line \
 			solve \
+			free_memory \
 
 LIB_NAME = libft
 

@@ -10,14 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TAKE_SHAPES_H
-# define TAKE_SHAPES_H
+#ifndef TAKE_TETRIMINO_H
+# define TAKE_TETRIMINO_H
 # include "fillit.h"
 # include "get_next_line.h"
 
-void    delete_2d(char ***arr);
-void    delete_tetro_list();
-void    parse_file(int fd);
+void	delete_2d(char ***arr, int h);
+void	delete_tetro_list(int h);
+void	parse_file(int fd);
 int		walk(char **t, int i, int j);
+void	fill_tetrimino(char **x, t_tetriminos *temp);
+void	go_through_columns(char **x, t_tetriminos *temp);
+void	go_through_lines(t_tetriminos *temp);
+char	**create_array(int wid, int high);
 
 #endif
