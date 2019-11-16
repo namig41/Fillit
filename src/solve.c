@@ -6,7 +6,7 @@
 /*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 17:15:51 by lcarmelo          #+#    #+#             */
-/*   Updated: 2019/11/07 15:12:53 by lcarmelo         ###   ########.fr       */
+/*   Updated: 2019/11/16 16:32:13 by ngale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int				draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 
 	i = -1;
 	if ((map[off_i][off_j] == '.' ||
-		(map[off_i][off_j] != '.' && obj->shape[0][0] == '.')))
+				(map[off_i][off_j] != '.' && obj->shape[0][0] == '.')))
 		while (++i < obj->height)
 		{
 			j = -1;
@@ -51,7 +51,7 @@ int				draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 				if (obj->shape[i][j] != '.' && map[off_i + i][off_j + j] == '.')
 					map[i + off_i][j + off_j] = obj->letter;
 				else if (obj->shape[i][j] != '.' &&
-					map[off_i + i][off_j + j] != '.')
+						map[off_i + i][off_j + j] != '.')
 				{
 					delete_shape(map, obj, off_i, off_j);
 					return (0);
@@ -64,7 +64,7 @@ int				draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j)
 }
 
 void			delete_shape(char **map, t_tetriminos *obj,
-								int off_i, int off_j)
+											int off_i, int off_j)
 {
 	int			i;
 	int			j;
@@ -75,7 +75,7 @@ void			delete_shape(char **map, t_tetriminos *obj,
 		j = -1;
 		while (++j < obj->width)
 			if (obj->shape[i][j] != '.' &&
-				map[i + off_i][j + off_j] == obj->letter)
+					map[i + off_i][j + off_j] == obj->letter)
 				map[i + off_i][j + off_j] = '.';
 	}
 }
@@ -97,8 +97,8 @@ int				search(char **map, int count_figure, int index)
 		j = -1;
 		while (++j < g_ms)
 			if (i <= g_ms - g_tl[index].height &&
-			j <= g_ms - g_tl[index].width &&
-			draw_shape(map, &g_tl[index], i, j))
+					j <= g_ms - g_tl[index].width &&
+					draw_shape(map, &g_tl[index], i, j))
 			{
 				if (search(map, count_figure, index + 1))
 					return (1);
@@ -113,7 +113,7 @@ void			search_solve(int count_figure)
 {
 	char		**map;
 
-        g_ms = ft_sqrt(g_ms * 4);
+	g_ms = ft_sqrt(g_ms * 4);
 	while (1)
 	{
 		if (!init_map(&map))
@@ -123,10 +123,10 @@ void			search_solve(int count_figure)
 			delete_2d(&map, g_ms);
 			while (--count_figure >= 0)
 				delete_2d(&g_tl[count_figure].shape,
-                                    g_tl[count_figure].height);
+						g_tl[count_figure].height);
 			return ;
 		}
 		delete_2d(&map, g_ms);
-                g_ms++;
+		g_ms++;
 	}
 }

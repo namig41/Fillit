@@ -6,7 +6,7 @@
 /*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:35:28 by lcarmelo          #+#    #+#             */
-/*   Updated: 2019/11/07 15:12:51 by lcarmelo         ###   ########.fr       */
+/*   Updated: 2019/11/16 16:30:22 by ngale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,23 @@ static void	create_tetro(int fd, int *row, int *col)
 
 	j = -1;
 	if (!(g_tl[g_ms].shape =
-			(char **)malloc(sizeof(char *) * (TETRO_SIZE + 1))))
+				(char **)malloc(sizeof(char *) * (TETRO_SIZE + 1))))
 		delete_tetro_list();
-        g_tl[g_ms].shape[TETRO_SIZE] = NULL;
+	g_tl[g_ms].shape[TETRO_SIZE] = NULL;
 	while (++j < TETRO_SIZE)
 	{
 		if (get_next_line(fd, &g_tl[g_ms].shape[j]) <= 0)
-                {
-                        g_tl[g_ms].shape[j] = NULL;
-		        delete_tetro_list();
-                }
+		{
+			g_tl[g_ms].shape[j] = NULL;
+			delete_tetro_list();
+		}
 		if (ft_strlen(g_tl[g_ms].shape[j]) != TETRO_SIZE)
 			delete_tetro_list();
-		if (*row < 0 &&
-		      (*row = fl_strchr(g_tl[g_ms].shape[j], '#')) >= 0)
+		if (*row < 0 && (*row = fl_strchr(g_tl[g_ms].shape[j], '#')) >= 0)
 			*col = j;
 	}
+	if (!check_tetro(g_tl[g_ms].shape))
+		delete_tetro_list();
 }
 
 void		parse_file(int fd)
@@ -91,17 +92,15 @@ void		parse_file(int fd)
 	int		col;
 	char	*line;
 
-        g_ms = -1;
+	g_ms = -1;
 	while (++g_ms < 26)
 	{
 		row = -1;
 		create_tetro(fd, &row, &col);
-		if (!check_tetro(g_tl[g_ms].shape))
-			delete_tetro_list();
 		if (row == -1 || walk(g_tl[g_ms].shape, col, row) != TETRO_SIZE)
 			delete_tetro_list();
 		go_through_lines(&g_tl[g_ms]);
-                g_tl[g_ms].letter = 'A' + g_ms;
+		g_tl[g_ms].letter = 'A' + g_ms;
 		if ((row = get_next_line(fd, &line)) >= 0 && !row && ++g_ms)
 			return ;
 		else if (line && *line)
@@ -109,8 +108,8 @@ void		parse_file(int fd)
 			ft_memdel((void **)&line);
 			delete_tetro_list();
 		}
-                ft_memdel((void **)&line);
+		ft_memdel((void **)&line);
 	}
-        if (get_next_line(fd, &line) >= 0)
-                delete_tetro_list();
+	if (get_next_line(fd, &line) >= 0)
+		delete_tetro_list();
 }

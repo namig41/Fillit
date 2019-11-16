@@ -6,7 +6,7 @@
 /*   By: aolen <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:04:30 by aolen             #+#    #+#             */
-/*   Updated: 2019/09/18 15:06:58 by aolen            ###   ########.fr       */
+/*   Updated: 2019/11/16 16:22:51 by ngale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ typedef struct	s_tetriminos
 }				t_tetriminos;
 
 t_tetriminos g_tl[26];
-int       g_ms;
+int				g_ms;
 
 #endif

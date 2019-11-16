@@ -6,13 +6,13 @@
 /*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 19:44:28 by lcarmelo          #+#    #+#             */
-/*   Updated: 2019/11/07 19:44:53 by lcarmelo         ###   ########.fr       */
+/*   Updated: 2019/11/16 16:25:07 by ngale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "take_tetrimino.h"
 
-void		delete_tetro_list()
+void		delete_tetro_list(void)
 {
 	int		i;
 	int		j;
@@ -22,7 +22,7 @@ void		delete_tetro_list()
 	{
 		j = -1;
 		while (g_tl[i].shape[++j] != NULL)
-		    ft_memdel((void **)&g_tl[i].shape[j]);
+			ft_memdel((void **)&g_tl[i].shape[j]);
 		ft_memdel((void **)&g_tl[i].shape);
 	}
 	ft_putendl("error");
