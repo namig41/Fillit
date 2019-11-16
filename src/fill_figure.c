@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include "take_tetrimino.h"
 
 void		fill_tetrimino(char **x, t_tetriminos *temp)
 {
@@ -44,11 +45,12 @@ char		**create_array(int wid, int high)
 	char	**x;
 
 	i = -1;
-	if (!(x = (char **)malloc(sizeof(char *) * high)))
-		return (NULL);
+	if (!(x = (char **)malloc(sizeof(char *) * (high + 1))))
+		delete_tetro_list();
 	while (++i < high)
-		if (!(x[i] = (char *)malloc(sizeof(char *) * high)))
-			return (NULL);
+		if (!(x[i] = (char *)malloc(sizeof(char *) * wid)))
+			delete_tetro_list();
+	x[high] = NULL;
 	return (x);
 }
 

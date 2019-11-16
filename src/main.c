@@ -17,11 +17,9 @@ int		main(int argc, char *argv[])
 {
 	int fd;
 
-	if (argc == 2)
-	{
-		fd = open(argv[1], O_RDONLY);
-		parse_file(fd);
-		search_solve(g_max_size);
-	}
+	fd = open(argv[1], O_RDONLY);
+	parse_file(fd);
+	search_solve(g_ms);
+	close(fd);
 	return (0);
 }

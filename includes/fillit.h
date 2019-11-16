@@ -27,7 +27,7 @@ typedef struct	s_tetriminos
 	int			height;
 }				t_tetriminos;
 
-t_tetriminos	g_tetro_list[26];
-int				g_max_size;
+t_tetriminos g_tl[26];
+int       g_ms;
 
 #endif

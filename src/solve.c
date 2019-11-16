@@ -18,17 +18,17 @@ int				init_map(char ***map)
 	int			j;
 
 	i = -1;
-	if (!(*map = (char **)malloc(sizeof(char *) * g_max_size)))
-		delete_tetro_list(TETRO_SIZE);
-	while (++i < g_max_size)
+	if (!(*map = (char **)malloc(sizeof(char *) * g_ms)))
+		delete_tetro_list();
+	while (++i < g_ms)
 	{
-		if (!((*map)[i] = (char *)malloc(sizeof(char) * (g_max_size + 1))))
+		if (!((*map)[i] = (char *)malloc(sizeof(char) * (g_ms + 1))))
 		{
 			delete_2d(map, i);
-			delete_tetro_list(TETRO_SIZE);
+			delete_tetro_list();
 		}
 		j = -1;
-		while (++j < g_max_size)
+		while (++j < g_ms)
 			(*map)[i][j] = '.';
 		(*map)[i][j] = '\0';
 	}
@@ -88,22 +88,22 @@ int				search(char **map, int count_figure, int index)
 	i = -1;
 	if (index == count_figure)
 	{
-		while (++i < g_max_size)
+		while (++i < g_ms)
 			ft_putendl(map[i]);
 		return (1);
 	}
-	while (++i < g_max_size)
+	while (++i < g_ms)
 	{
 		j = -1;
-		while (++j < g_max_size)
-			if (i <= g_max_size - g_tetro_list[index].height &&
-			j <= g_max_size - g_tetro_list[index].width &&
-			draw_shape(map, &g_tetro_list[index], i, j))
+		while (++j < g_ms)
+			if (i <= g_ms - g_tl[index].height &&
+			j <= g_ms - g_tl[index].width &&
+			draw_shape(map, &g_tl[index], i, j))
 			{
 				if (search(map, count_figure, index + 1))
 					return (1);
 				else
-					delete_shape(map, &g_tetro_list[index], i, j);
+					delete_shape(map, &g_tl[index], i, j);
 			}
 	}
 	return (0);
@@ -113,20 +113,20 @@ void			search_solve(int count_figure)
 {
 	char		**map;
 
-	g_max_size = ft_sqrt(g_max_size * 4);
+        g_ms = ft_sqrt(g_ms * 4);
 	while (1)
 	{
 		if (!init_map(&map))
 			return ;
 		if (search(map, count_figure, 0))
 		{
-			delete_2d(&map, g_max_size);
+			delete_2d(&map, g_ms);
 			while (--count_figure >= 0)
-				delete_2d(&g_tetro_list[count_figure].shape,
-						g_tetro_list[count_figure].height);
+				delete_2d(&g_tl[count_figure].shape,
+                                    g_tl[count_figure].height);
 			return ;
 		}
-		delete_2d(&map, g_max_size);
-		g_max_size++;
+		delete_2d(&map, g_ms);
+                g_ms++;
 	}
 }

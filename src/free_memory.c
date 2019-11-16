@@ -12,18 +12,18 @@
 
 #include "take_tetrimino.h"
 
-void		delete_tetro_list(int h)
+void		delete_tetro_list()
 {
 	int		i;
 	int		j;
 
 	i = -1;
-	while (++i < g_max_size)
+	while ((g_ms == 26) ? (++i < g_ms) : (++i <= g_ms))
 	{
 		j = -1;
-		while (++j < h)
-			ft_memdel((void **)&g_tetro_list[i].shape[j]);
-		ft_memdel((void **)&g_tetro_list[i].shape);
+		while (g_tl[i].shape[++j] != NULL)
+		    ft_memdel((void **)&g_tl[i].shape[j]);
+		ft_memdel((void **)&g_tl[i].shape);
 	}
 	ft_putendl("error");
 	exit(0);

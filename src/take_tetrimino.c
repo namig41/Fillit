@@ -45,7 +45,7 @@ static int	fl_strchr(const char *str, int ch)
 	return (-1);
 }
 
-static int	cheack_tetro(char **t)
+static int	check_tetro(char **t)
 {
 	int		i;
 	int		j;
@@ -61,22 +61,26 @@ static int	cheack_tetro(char **t)
 	return (1);
 }
 
-static void	сreate_tetro(int fd, int *row, int *col)
+static void	create_tetro(int fd, int *row, int *col)
 {
 	int		j;
 
 	j = -1;
-	if (!(g_tetro_list[g_max_size].shape =
-			(char **)malloc(sizeof(char *) * TETRO_SIZE)))
-		delete_tetro_list(g_max_size);
+	if (!(g_tl[g_ms].shape =
+			(char **)malloc(sizeof(char *) * (TETRO_SIZE + 1))))
+		delete_tetro_list();
+        g_tl[g_ms].shape[TETRO_SIZE] = NULL;
 	while (++j < TETRO_SIZE)
 	{
-		if (get_next_line(fd, &g_tetro_list[g_max_size].shape[j]) <= 0)
-			delete_tetro_list(j - 1);
-		if (ft_strlen(g_tetro_list[g_max_size].shape[j]) != TETRO_SIZE)
-			delete_tetro_list(j - 1);
+		if (get_next_line(fd, &g_tl[g_ms].shape[j]) <= 0)
+                {
+                        g_tl[g_ms].shape[j] = NULL;
+		        delete_tetro_list();
+                }
+		if (ft_strlen(g_tl[g_ms].shape[j]) != TETRO_SIZE)
+			delete_tetro_list();
 		if (*row < 0 &&
-		(*row = fl_strchr(g_tetro_list[g_max_size].shape[j], '#')) >= 0)
+		      (*row = fl_strchr(g_tl[g_ms].shape[j], '#')) >= 0)
 			*col = j;
 	}
 }
@@ -87,25 +91,26 @@ void		parse_file(int fd)
 	int		col;
 	char	*line;
 
-	g_max_size = 0;
-	while (1)
+        g_ms = -1;
+	while (++g_ms < 26)
 	{
 		row = -1;
-		сreate_tetro(fd, &row, &col);
-		if (!cheack_tetro(g_tetro_list[g_max_size].shape))
-			delete_tetro_list(TETRO_SIZE);
-		if (row == -1 ||
-		walk(g_tetro_list[g_max_size].shape, col, row) != TETRO_SIZE)
-			delete_tetro_list(TETRO_SIZE);
-		go_through_lines(&g_tetro_list[g_max_size]);
-		g_tetro_list[g_max_size].letter = 'A' + g_max_size;
-		if ((row = get_next_line(fd, &line)) >= 0 && !row && ++g_max_size)
+		create_tetro(fd, &row, &col);
+		if (!check_tetro(g_tl[g_ms].shape))
+			delete_tetro_list();
+		if (row == -1 || walk(g_tl[g_ms].shape, col, row) != TETRO_SIZE)
+			delete_tetro_list();
+		go_through_lines(&g_tl[g_ms]);
+                g_tl[g_ms].letter = 'A' + g_ms;
+		if ((row = get_next_line(fd, &line)) >= 0 && !row && ++g_ms)
 			return ;
 		else if (line && *line)
 		{
 			ft_memdel((void **)&line);
-			delete_tetro_list(TETRO_SIZE - 3);
+			delete_tetro_list();
 		}
-		g_max_size++;
+                ft_memdel((void **)&line);
 	}
+        if (get_next_line(fd, &line) >= 0)
+                delete_tetro_list();
 }
