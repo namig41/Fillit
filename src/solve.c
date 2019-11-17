@@ -6,29 +6,29 @@
 /*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 17:15:51 by lcarmelo          #+#    #+#             */
-/*   Updated: 2019/11/16 16:32:13 by ngale            ###   ########.fr       */
+/*   Updated: 2019/11/16 18:02:15 by ngale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solve.h"
 
-int				init_map(char ***map)
+int				init_map(char ***map, int size)
 {
 	int			i;
 	int			j;
 
 	i = -1;
-	if (!(*map = (char **)malloc(sizeof(char *) * g_ms)))
+	if (!(*map = (char **)malloc(sizeof(char *) * size)))
 		delete_tetro_list();
-	while (++i < g_ms)
+	while (++i < size)
 	{
-		if (!((*map)[i] = (char *)malloc(sizeof(char) * (g_ms + 1))))
+		if (!((*map)[i] = (char *)malloc(sizeof(char) * (size + 1))))
 		{
 			delete_2d(map, i);
 			delete_tetro_list();
 		}
 		j = -1;
-		while (++j < g_ms)
+		while (++j < size)
 			(*map)[i][j] = '.';
 		(*map)[i][j] = '\0';
 	}
@@ -80,27 +80,27 @@ void			delete_shape(char **map, t_tetriminos *obj,
 	}
 }
 
-int				search(char **map, int count_figure, int index)
+int				search(char **map, int size, int index)
 {
 	int			i;
 	int			j;
 
 	i = -1;
-	if (index == count_figure)
+	if (index == g_ms)
 	{
-		while (++i < g_ms)
+		while (++i < size)
 			ft_putendl(map[i]);
 		return (1);
 	}
-	while (++i < g_ms)
+	while (++i < size)
 	{
 		j = -1;
-		while (++j < g_ms)
-			if (i <= g_ms - g_tl[index].height &&
-					j <= g_ms - g_tl[index].width &&
+		while (++j < size)
+			if (i <= size - g_tl[index].height &&
+					j <= size - g_tl[index].width &&
 					draw_shape(map, &g_tl[index], i, j))
 			{
-				if (search(map, count_figure, index + 1))
+				if (search(map, size, index + 1))
 					return (1);
 				else
 					delete_shape(map, &g_tl[index], i, j);
@@ -109,24 +109,24 @@ int				search(char **map, int count_figure, int index)
 	return (0);
 }
 
-void			search_solve(int count_figure)
+void			search_solve(void)
 {
 	char		**map;
+	int			size;
 
-	g_ms = ft_sqrt(g_ms * 4);
+	size = ft_sqrt(g_ms * 4);
 	while (1)
 	{
-		if (!init_map(&map))
+		if (!init_map(&map, size))
 			return ;
-		if (search(map, count_figure, 0))
+		if (search(map, size, 0))
 		{
-			delete_2d(&map, g_ms);
-			while (--count_figure >= 0)
-				delete_2d(&g_tl[count_figure].shape,
-						g_tl[count_figure].height);
+			delete_2d(&map, size);
+			while (--g_ms >= 0)
+				delete_2d(&g_tl[g_ms].shape, g_tl[g_ms].height);
 			return ;
 		}
-		delete_2d(&map, g_ms);
-		g_ms++;
+		delete_2d(&map, size);
+		size++;
 	}
 }

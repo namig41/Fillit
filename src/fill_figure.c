@@ -32,10 +32,7 @@ void		fill_tetrimino(char **x, t_tetriminos *temp)
 			if (temp->shape[i][j] != '0')
 				x[m][++n] = temp->shape[i][j];
 	}
-	i = -1;
-	while (++i < TETRO_SIZE)
-		free(temp->shape[i]);
-	free(temp->shape);
+	delete_2d(&temp->shape, TETRO_SIZE);
 	temp->shape = x;
 }
 

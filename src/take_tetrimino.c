@@ -6,7 +6,7 @@
 /*   By: lcarmelo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 15:35:28 by lcarmelo          #+#    #+#             */
-/*   Updated: 2019/11/16 16:30:22 by ngale            ###   ########.fr       */
+/*   Updated: 2019/11/16 18:00:44 by ngale            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ static void	create_tetro(int fd, int *row, int *col)
 			delete_tetro_list();
 		}
 		if (ft_strlen(g_tl[g_ms].shape[j]) != TETRO_SIZE)
+		{
+			g_tl[g_ms].shape[j + 1] = NULL;
 			delete_tetro_list();
+		}
 		if (*row < 0 && (*row = fl_strchr(g_tl[g_ms].shape[j], '#')) >= 0)
 			*col = j;
 	}
