@@ -130,3 +130,4 @@ void			search_solve(void)
 		size++;
 	}
 }
+

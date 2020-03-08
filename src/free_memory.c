@@ -41,3 +41,4 @@ void		delete_2d(char ***arr, int h)
 		ft_memdel((void **)&(*arr));
 	}
 }
+

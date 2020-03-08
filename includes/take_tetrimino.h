@@ -16,7 +16,7 @@
 # include "get_next_line.h"
 
 void	delete_2d(char ***arr, int h);
-void	delete_tetro_list();
+void	delete_tetro_list(void);
 void	parse_file(int fd);
 int		walk(char **t, int i, int j);
 void	fill_tetrimino(char **x, t_tetriminos *temp);

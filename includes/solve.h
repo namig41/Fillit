@@ -14,10 +14,10 @@
 # define SOLVE_H
 # include "take_tetrimino.h"
 
-void	search_solve();
+void	search_solve(void);
 int		init_map(char ***map, int size);
 int		draw_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
-void	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
 int		search(char **map, int size, int index);
+void	delete_shape(char **map, t_tetriminos *obj, int off_i, int off_j);
 
 #endif

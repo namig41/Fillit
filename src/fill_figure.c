@@ -105,3 +105,4 @@ void		go_through_lines(t_tetriminos *temp)
 	}
 	go_through_columns(x, temp);
 }
+

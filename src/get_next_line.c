@@ -39,3 +39,4 @@ int		get_next_line(const int fd, char **line)
 	ft_memdel((void *)&c[fd]);
 	return ((c[fd] = s) == s);
 }
+

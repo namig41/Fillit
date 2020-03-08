@@ -116,3 +116,4 @@ void		parse_file(int fd)
 	if (get_next_line(fd, &line) >= 0)
 		delete_tetro_list();
 }
+
