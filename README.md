@@ -1,5 +1,3 @@
-# fillit
----------
 # Descrition
 Fillit is not about recoding Tetris, even if it’s still a variant of this game. Your program will take a file as parameter, which contains a list of Tetriminos, and arrange themin order to create the smallest square possible.
 
